@@ -5,7 +5,7 @@ This project uses spring as dependency injection and to inject the steps in test
 Philosophy here is: "Keep it simple, stupid".
 
 ### Requirements
-Java 8, Maven
+Java 8, Junit 5, Maven
 
 ### Run tests from command line
 mvn clean test.
