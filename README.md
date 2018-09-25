@@ -12,4 +12,5 @@ mvn clean test. or mvn clean test -Dtags=smoke
 
 ### Useful links
 https://github.com/bonigarcia/webdrivermanager
+
 http://allure.qatools.ru/
