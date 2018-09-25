@@ -8,4 +8,4 @@ Philosophy here is: "Keep it simple, stupid".
 Java 8, Junit 5, Maven
 
 ### Run tests from command line
-mvn clean test.
+mvn clean test. or mvn clean test -Dtags=smoke
