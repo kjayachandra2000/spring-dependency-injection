@@ -4,7 +4,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -14,21 +16,21 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class DriverManager {
 
-    private WebDriver driver = null;
+    @Autowired
+    private Environment env;
 
     @Bean
     public WebDriver getDriver() {
-        if (driver == null) {
-            switch (Settings.get("browser").toLowerCase()) {
-                case "chrome":
-                    driver = getChromeDriver();
-                    break;
-                default:
-                    driver = getChromeDriver();
-                    break;
-            }
-            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        WebDriver driver;
+        switch (env.getProperty("browser").toLowerCase()) {
+            case "chrome":
+                driver = getChromeDriver();
+                break;
+            default:
+                driver = getChromeDriver();
+                break;
         }
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return driver;
     }
 

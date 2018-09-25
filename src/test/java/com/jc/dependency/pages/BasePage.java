@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class BasePage extends PageActions {
 
-    protected final WebDriver driver;
+    protected WebDriver driver;
 
     @Autowired
     protected BasePage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 30), this);
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 15), this);
     }
 }
