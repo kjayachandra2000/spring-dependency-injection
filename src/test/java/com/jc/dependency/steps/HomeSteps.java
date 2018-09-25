@@ -7,12 +7,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class HomeSteps {
 
-    private HomePage homePage;
-
     @Autowired
-    public HomeSteps(HomePage homePage) {
-        this.homePage = homePage;
-    }
+    private HomePage homePage;
 
     public void openFlightStatus() {
         homePage

@@ -8,24 +8,16 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
-import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 
 import java.util.concurrent.TimeUnit;
 
 @ExtendWith(SpringExtension.class)
-@TestExecutionListeners(
-        listeners = {
-                DependencyInjectionTestExecutionListener.class,
-                TransactionalTestExecutionListener.class
-        })
 @ContextConfiguration(classes = SpringConfig.class)
 public class BaseTest {
 
     @Autowired
-    WebDriver driver;
+    private WebDriver driver;
 
     @BeforeEach
     public void beforeEach() {

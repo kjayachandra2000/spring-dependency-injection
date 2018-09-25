@@ -7,12 +7,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class FlightStatusSteps {
 
-    private FlightStatusPage flightStatusPage;
-
     @Autowired
-    public FlightStatusSteps(FlightStatusPage flightStatusPage) {
-        this.flightStatusPage = flightStatusPage;
-    }
+    private FlightStatusPage flightStatusPage;
 
     public void checkFlightByNumber(String flightNumber) {
         flightStatusPage
